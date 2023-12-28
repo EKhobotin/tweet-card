@@ -27,7 +27,7 @@ const UserMenu = () => {
       >
         Logout
       </Button>
-      <p>{user.email}</p>
+      <p style={{ margin: '20px' }}>{user.email}</p>
     </>
   );
 };
