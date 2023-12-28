@@ -3,13 +3,16 @@ import React, { useEffect } from 'react';
 import { Audio } from 'react-loader-spinner';
 import { List, ListItem, Span } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContactThunk, fetchContactsThunk } from 'store/contactsThunk';
+import {
+  deleteContactThunk,
+  fetchContactsThunk,
+} from 'store/contacts/contactsThunk';
 import {
   selectContacts,
   selectFilter,
   selectError,
   selectisLoading,
-} from 'store/selectors';
+} from 'store/contacts/selectors';
 import { selectUser } from 'store/auth/selectors';
 
 export const ContactsList = () => {

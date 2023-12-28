@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Form, Container, Label, Button, Input } from './FormAddContact.styled';
 // import { nanoid } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
-import { addContactThunk } from 'store/contactsThunk';
-import { selectContacts } from 'store/selectors';
+import { addContactThunk } from 'store/contacts/contactsThunk';
+import { selectContacts } from 'store/contacts/selectors';
 
 export const FormAddContact = () => {
   const [name, setName] = useState('');
