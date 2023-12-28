@@ -22,8 +22,16 @@ const Layout = () => {
           fontSize="md"
         >
           {user ? (
-            <UserMenu />
+            <>
+              <NavLink style={{ margin: '20px' }} to="/contacts">
+                Contacts
+              </NavLink>
+              <UserMenu as={NavLink} to="/contacts" />
+            </>
           ) : (
+            // (
+            // <UserMenu as={NavLink} to="/contacts" />
+            // )
             <>
               <BreadcrumbItem p="5">
                 <BreadcrumbLink as={NavLink} to="/login">
