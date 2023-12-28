@@ -11,4 +11,5 @@ export const SearchTitle = styled.h3`
 `;
 export const SearchInput = styled.input`
   margin: 0 auto;
+  border: 1px solid #000000;
 `;

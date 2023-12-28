@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { Form, Container, Label, Button, Input } from './FormAddContact.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { nanoid } from '@reduxjs/toolkit';
-import { addContact } from 'store/contactsSlice';
+import { Form, Container, Label, Button, Input } from './FormAddContact.styled';
+// import { nanoid } from '@reduxjs/toolkit';
+import Notiflix from 'notiflix';
+import { addContactThunk } from 'store/contactsThunk';
+import { selectContacts } from 'store/selectors';
 
 export const FormAddContact = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const { contacts } = useSelector(state => state.contacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handleChangeContact = e => {
@@ -28,17 +30,17 @@ export const FormAddContact = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const newContact = {
-      id: nanoid(),
+      // id: nanoid(),
       name,
       number,
     };
-    if (contacts.find(el => el.name === name)) {
-      alert(`${name} is already in contacts`);
+    if (contacts.some(el => el.name === name)) {
+      Notiflix.Notify.warning('is already in contacts');
     } else {
-      dispatch(addContact(newContact));
+      dispatch(addContactThunk(newContact));
+      setName('');
+      setNumber('');
     }
-    setName('');
-    setNumber('');
   };
 
   return (
@@ -66,7 +68,7 @@ export const FormAddContact = () => {
             onChange={handleChangeContact}
           />
         </Label>
-        <Button type="submit">Додати контакт</Button>
+        <Button type="submit">New Contact</Button>
       </Form>
     </Container>
   );

@@ -14,8 +14,10 @@ export const Button = styled.button`
   margin: 0 auto;
   border-radius: 10px;
   border: none;
-  height: 30px;
-  background-color: #e6bb91;
+  height: 40px;
+  background-color: #4169e1;
+  padding: 5px;
+  color: #ffffff;
 
   &:hover,
   &:focus {
@@ -26,4 +28,5 @@ export const Button = styled.button`
 `;
 export const Input = styled.input`
   margin-left: 5px;
+  border: 1px solid #000000;
 `;

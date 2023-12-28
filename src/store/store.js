@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { phonebookReducer } from './contactsSlice';
+import { authReducer } from './auth/slice';
 
 import {
   persistStore,
@@ -16,13 +17,15 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['filter'],
+  whitelist: ['token'],
 };
-const persistedReducer = persistReducer(persistConfig, phonebookReducer);
+
+const persistedReducer = persistReducer(persistConfig, authReducer);
 
 export const store = configureStore({
   reducer: {
-    contacts: persistedReducer,
+    contacts: phonebookReducer,
+    auth: persistedReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -31,4 +34,5 @@ export const store = configureStore({
       },
     }),
 });
+
 export const persistor = persistStore(store);
