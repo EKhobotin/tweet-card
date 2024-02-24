@@ -10,21 +10,19 @@ import {
   UserBtn,
 } from './User.styled';
 
-export const User = () => {
+export const User = ({ user, tweets, followers, avatar, id }) => {
   return (
     <UserContainer>
       <UserLogo src={Logo} alt="card logo" />
       <UserPicture src={BgImg} alt="background card" />
       <Line />
       <AvatarContainer>
-        <img src="" alt="user" width="62" height="62" />
+        <img src={avatar} alt="avatar" width="62" height="62" />
       </AvatarContainer>
       <InfoContainer>
-        <li>
-          <p>User Name</p>
-        </li>
-        <li>10 tweets</li>
-        <li>100500 Followers</li>
+        <li>{user}</li>
+        <li>{tweets} tweets</li>
+        <li>{followers} followers</li>
       </InfoContainer>
       <UserBtn>Following</UserBtn>
     </UserContainer>

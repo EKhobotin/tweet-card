@@ -1,7 +1,8 @@
 import { User } from './User/User';
+import { UserList } from './UserList/UserList';
 
 function App() {
-  return <User />;
+  return <UserList />;
 }
 
 export default App;

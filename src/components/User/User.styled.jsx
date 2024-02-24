@@ -71,6 +71,7 @@ export const InfoContainer = styled.ul`
     font-size: 20px;
     line-height: calc(24 / 20);
     text-transform: uppercase;
+    text-align: center;
   }
 `;
 
