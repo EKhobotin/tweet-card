@@ -1,14 +1,29 @@
 {
   "files": {
-    "main.css": "/tweet-card/static/css/main.8d79ba41.css",
-    "main.js": "/tweet-card/static/js/main.4ecf6fa7.js",
+    "main.css": "/tweet-card/static/css/main.669eda31.css",
+    "main.js": "/tweet-card/static/js/main.8cdc383e.js",
+    "static/js/36.b692897c.chunk.js": "/tweet-card/static/js/36.b692897c.chunk.js",
+    "static/js/10.eee98522.chunk.js": "/tweet-card/static/js/10.eee98522.chunk.js",
+    "static/js/17.d3531960.chunk.js": "/tweet-card/static/js/17.d3531960.chunk.js",
+    "static/js/216.8db08aca.chunk.js": "/tweet-card/static/js/216.8db08aca.chunk.js",
+    "static/js/196.17e2f1a8.chunk.js": "/tweet-card/static/js/196.17e2f1a8.chunk.js",
+    "static/js/294.c89f1398.chunk.js": "/tweet-card/static/js/294.c89f1398.chunk.js",
+    "static/js/137.d443e55a.chunk.js": "/tweet-card/static/js/137.d443e55a.chunk.js",
+    "static/media/home-bg.png": "/tweet-card/static/media/home-bg.8a7714c3495eb00d7c45.png",
     "static/media/background_image.png": "/tweet-card/static/media/background_image.032662a2a907475127d7.png",
     "index.html": "/tweet-card/index.html",
-    "main.8d79ba41.css.map": "/tweet-card/static/css/main.8d79ba41.css.map",
-    "main.4ecf6fa7.js.map": "/tweet-card/static/js/main.4ecf6fa7.js.map"
+    "main.669eda31.css.map": "/tweet-card/static/css/main.669eda31.css.map",
+    "main.8cdc383e.js.map": "/tweet-card/static/js/main.8cdc383e.js.map",
+    "36.b692897c.chunk.js.map": "/tweet-card/static/js/36.b692897c.chunk.js.map",
+    "10.eee98522.chunk.js.map": "/tweet-card/static/js/10.eee98522.chunk.js.map",
+    "17.d3531960.chunk.js.map": "/tweet-card/static/js/17.d3531960.chunk.js.map",
+    "216.8db08aca.chunk.js.map": "/tweet-card/static/js/216.8db08aca.chunk.js.map",
+    "196.17e2f1a8.chunk.js.map": "/tweet-card/static/js/196.17e2f1a8.chunk.js.map",
+    "294.c89f1398.chunk.js.map": "/tweet-card/static/js/294.c89f1398.chunk.js.map",
+    "137.d443e55a.chunk.js.map": "/tweet-card/static/js/137.d443e55a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8d79ba41.css",
-    "static/js/main.4ecf6fa7.js"
+    "static/css/main.669eda31.css",
+    "static/js/main.8cdc383e.js"
   ]
 }
