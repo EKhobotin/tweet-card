@@ -1,8 +1,8 @@
 {
-  "name": "react-homework-template",
+  "name": "react-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Ekhobotin.github.io/goit-react-hw-08-phonebook/",
+  "homepage": "https://ekhobotin.github.io/tweet-card/",
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
