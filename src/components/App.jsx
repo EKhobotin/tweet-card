@@ -1,4 +1,4 @@
-import { User } from './User/User';
+// import { User } from './User/User';
 import { UserList } from './UserList/UserList';
 
 function App() {
