@@ -4,7 +4,7 @@ import { User } from 'components/User/User';
 
 export const UserList = () => {
   const [users, setUsers] = useState([]);
-  const [cardsOnPage, setCardsOnPage] = useState(3);
+  const [cardsOnPage, setCardsOnPage] = useState(6);
 
   useEffect(() => {
     if (users?.length) {
@@ -16,13 +16,20 @@ export const UserList = () => {
     };
     getUsers();
     console.log(users);
-  }, []);
+  }, [users]);
+
+  const handleLoadMore = () => {
+    setCardsOnPage(prevState => prevState + 6);
+  };
 
   return (
-    <ul>
-      {users.slice(0, cardsOnPage).map(user => (
-        <User key={user.id} {...user} />
-      ))}
-    </ul>
+    <>
+      <ul>
+        {users.slice(0, cardsOnPage).map(user => (
+          <User key={user.id} {...user} />
+        ))}
+      </ul>
+      <button onClick={handleLoadMore}>Load More</button>
+    </>
   );
 };
