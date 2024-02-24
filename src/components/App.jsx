@@ -1,8 +1,19 @@
-// import { User } from './User/User';
-import { UserList } from './UserList/UserList';
+import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
 
-function App() {
-  return <UserList />;
-}
+const Home = lazy(() => import('../pages/Home'));
+const Layout = lazy(() => import('./Layout/Layout'));
+const Tweets = lazy(() => import('../pages/Tweets'));
+const NotFound = lazy(() => import('./NotFound/NotFound'));
 
-export default App;
+export const App = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="tweets" element={<Tweets />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
+  );
+};
