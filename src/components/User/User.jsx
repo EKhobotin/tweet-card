@@ -9,8 +9,41 @@ import {
   InfoContainer,
   UserBtn,
 } from './User.styled';
+import { useEffect, useState } from 'react';
 
 export const User = ({ user, tweets, followers, avatar, id }) => {
+  //   const USERS = JSON.parse(localStorage.getItem('USERS'));
+  //   const [{ follower }] = USERS.filter(user => user.id === id);
+
+  const [following, setfollowing] = useState(
+    JSON.parse(localStorage.getItem(`USER_${id}`)) || false
+  );
+
+  //   console.log(follower);
+  //   useEffect(() => {
+  //     localStorage.setItem(
+  //       'USERS',
+  //       JSON.stringify(
+  //         USERS.map(user =>
+  //           user.id !== id ? user : { id: user.id, follower: !user.follower }
+  //         )
+  //       )
+  //     );
+  //   }, [following, id]);
+
+  useEffect(() => {
+    localStorage.setItem(`USER_${id}`, JSON.stringify(following));
+  }, [following, id]);
+
+  const formatNumber = number => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
+  const handleFollowButton = () => {
+    setfollowing(!following);
+    // console.log('clickfollow');
+  };
+
   return (
     <UserContainer>
       <UserLogo src={Logo} alt="card logo" />
@@ -21,10 +54,20 @@ export const User = ({ user, tweets, followers, avatar, id }) => {
       </AvatarContainer>
       <InfoContainer>
         <li>{user}</li>
-        <li>{tweets} tweets</li>
-        <li>{followers} followers</li>
+        <li>{formatNumber(tweets * 999)} tweets</li>
+        <li>
+          {following
+            ? formatNumber(followers * 555 + 1)
+            : formatNumber(followers * 555)}{' '}
+          followers
+        </li>
       </InfoContainer>
-      <UserBtn>Following</UserBtn>
+      <UserBtn
+        style={{ backgroundColor: following ? '#45b3e0' : '#ebd8ff' }}
+        onClick={handleFollowButton}
+      >
+        {following ? 'following' : 'follow'}
+      </UserBtn>
     </UserContainer>
   );
 };

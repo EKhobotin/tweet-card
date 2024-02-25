@@ -6,19 +6,31 @@ import {
   LoadMoreButton,
   UsersListWrapper,
 } from 'components/UserList/UserList.styled';
+import { Loader } from 'components/Loader/Loader';
 
 const Tweets = () => {
   const [users, setUsers] = useState([]);
   const [cardsOnPage, setCardsOnPage] = useState(3);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (users?.length) {
       return;
     }
+
     const getUsers = async () => {
-      const listusers = await fetchUsers();
-      setUsers(listusers);
+      try {
+        setLoading(true);
+        const listusers = await fetchUsers();
+        setUsers(listusers);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
     };
+
     getUsers();
   }, [users]);
 
@@ -28,8 +40,14 @@ const Tweets = () => {
   return (
     <UsersListWrapper>
       <ButtonBack />
-      <UserList users={users} cardsOnPage={cardsOnPage} />
-      <LoadMoreButton onClick={handleLoadMore}>Load More</LoadMoreButton>
+      {loading ? (
+        <Loader />
+      ) : (
+        <UserList users={users} cardsOnPage={cardsOnPage} />
+      )}
+      {cardsOnPage < users.length ? (
+        <LoadMoreButton onClick={handleLoadMore}>Load More</LoadMoreButton>
+      ) : null}
     </UsersListWrapper>
   );
 };

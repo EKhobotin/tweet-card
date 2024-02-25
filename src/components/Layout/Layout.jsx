@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import { Suspense } from 'react';
 import { Container, Header, Link } from './Layout.styled';
 import { Loader } from 'components/Loader/Loader';
+import { Suspense } from 'react';
 
 const Layout = () => {
   return (

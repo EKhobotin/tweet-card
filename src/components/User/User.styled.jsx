@@ -84,9 +84,7 @@ export const UserBtn = styled.button`
   border-radius: 10.3108px;
   border: none;
   cursor: pointer;
-
   color: #373737;
-  background:  #45b3e0
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
