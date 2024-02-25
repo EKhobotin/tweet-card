@@ -9,31 +9,13 @@ import {
   InfoContainer,
   UserBtn,
 } from './User.styled';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { loadFromLS, saveToLS } from 'services/localStorage';
 
 export const User = ({ user, tweets, followers, avatar, id }) => {
-  //   const USERS = JSON.parse(localStorage.getItem('USERS'));
-  //   const [{ follower }] = USERS.filter(user => user.id === id);
-
   const [following, setfollowing] = useState(
-    JSON.parse(localStorage.getItem(`USER_${id}`)) || false
+    loadFromLS('FOLLOWERS').includes(id) || false
   );
-
-  //   console.log(follower);
-  //   useEffect(() => {
-  //     localStorage.setItem(
-  //       'USERS',
-  //       JSON.stringify(
-  //         USERS.map(user =>
-  //           user.id !== id ? user : { id: user.id, follower: !user.follower }
-  //         )
-  //       )
-  //     );
-  //   }, [following, id]);
-
-  useEffect(() => {
-    localStorage.setItem(`USER_${id}`, JSON.stringify(following));
-  }, [following, id]);
 
   const formatNumber = number => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -41,7 +23,11 @@ export const User = ({ user, tweets, followers, avatar, id }) => {
 
   const handleFollowButton = () => {
     setfollowing(!following);
-    // console.log('clickfollow');
+    const followers = loadFromLS('FOLLOWERS');
+    followers.includes(id)
+      ? followers.splice(followers.indexOf(id), 1)
+      : followers.push(id);
+    saveToLS('FOLLOWERS', followers);
   };
 
   return (
