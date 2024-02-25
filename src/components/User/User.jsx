@@ -13,8 +13,8 @@ import { useState } from 'react';
 import { loadFromLS, saveToLS } from 'services/localStorage';
 
 export const User = ({ user, tweets, followers, avatar, id }) => {
-  const [following, setfollowing] = useState(
-    loadFromLS('FOLLOWERS').includes(id) || false
+  const [following, setFollowing] = useState(
+    loadFromLS('FOLLOWERS')?.includes(id) || false
   );
 
   const formatNumber = number => {
@@ -22,11 +22,14 @@ export const User = ({ user, tweets, followers, avatar, id }) => {
   };
 
   const handleFollowButton = () => {
-    setfollowing(!following);
-    const followers = loadFromLS('FOLLOWERS');
-    followers.includes(id)
-      ? followers.splice(followers.indexOf(id), 1)
-      : followers.push(id);
+    const followers = loadFromLS('FOLLOWERS') || [];
+    if (followers.includes(id)) {
+      followers.splice(followers.indexOf(id), 1);
+      setFollowing(false);
+    } else {
+      followers.push(id);
+      setFollowing(true);
+    }
     saveToLS('FOLLOWERS', followers);
   };
 

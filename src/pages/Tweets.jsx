@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchUsers } from 'services/api';
 import { UserList } from 'components/UserList/UserList';
 import { ButtonBack } from 'components/ButtonBack/ButtonBack';
@@ -7,7 +7,6 @@ import {
   UsersListWrapper,
 } from 'components/UserList/UserList.styled';
 import { Loader } from 'components/Loader/Loader';
-import { loadFromLS, saveToLS } from 'services/localStorage';
 
 const Tweets = () => {
   const [users, setUsers] = useState([]);
@@ -36,20 +35,8 @@ const Tweets = () => {
     getUsers();
   }, [users]);
 
-  const checkFollowers = useCallback(() => {
-    const followers = loadFromLS('FOLLOWERS');
-    if (!followers) {
-      saveToLS('FOLLOWERS', []);
-    }
-  }, []);
-
-  useEffect(() => {
-    checkFollowers();
-  }, [checkFollowers]);
-
   const handleLoadMore = () => {
     setCardsOnPage(prevState => prevState + 3);
-    checkFollowers();
   };
   return (
     <>
