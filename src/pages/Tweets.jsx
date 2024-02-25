@@ -12,7 +12,7 @@ const Tweets = () => {
   const [users, setUsers] = useState([]);
   const [cardsOnPage, setCardsOnPage] = useState(3);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     if (users?.length) {
@@ -25,7 +25,8 @@ const Tweets = () => {
         const listusers = await fetchUsers();
         setUsers(listusers);
       } catch (error) {
-        setError(error.message);
+        setError(true);
+        console.log(error);
       } finally {
         setLoading(false);
       }
@@ -38,17 +39,23 @@ const Tweets = () => {
     setCardsOnPage(prevState => prevState + 3);
   };
   return (
-    <UsersListWrapper>
-      <ButtonBack />
-      {loading ? (
-        <Loader />
+    <>
+      {error ? (
+        <h1>Щось пішло не так, спробуйте пізніше</h1>
       ) : (
-        <UserList users={users} cardsOnPage={cardsOnPage} />
+        <UsersListWrapper>
+          <ButtonBack />
+          {loading ? (
+            <Loader />
+          ) : (
+            <UserList users={users} cardsOnPage={cardsOnPage} />
+          )}
+          {cardsOnPage < users.length ? (
+            <LoadMoreButton onClick={handleLoadMore}>Load More</LoadMoreButton>
+          ) : null}
+        </UsersListWrapper>
       )}
-      {cardsOnPage < users.length ? (
-        <LoadMoreButton onClick={handleLoadMore}>Load More</LoadMoreButton>
-      ) : null}
-    </UsersListWrapper>
+    </>
   );
 };
 
