@@ -80,8 +80,8 @@ export const UserBtn = styled.button`
   bottom: 10px;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 14px 56px;
-  border-radius: 10.3108px;
+  padding: 14px 39px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
   color: #373737;

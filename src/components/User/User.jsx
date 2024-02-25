@@ -63,7 +63,7 @@ export const User = ({ user, tweets, followers, avatar, id }) => {
         </li>
       </InfoContainer>
       <UserBtn
-        style={{ backgroundColor: following ? '#45b3e0' : '#ebd8ff' }}
+        style={{ backgroundColor: following ? '#5CD3A8' : '#ebd8ff' }}
         onClick={handleFollowButton}
       >
         {following ? 'following' : 'follow'}
