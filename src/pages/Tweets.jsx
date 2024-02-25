@@ -41,7 +41,7 @@ const Tweets = () => {
   return (
     <>
       {error ? (
-        <h1>Щось пішло не так, спробуйте пізніше</h1>
+        <h1>Something went wrong, try again later</h1>
       ) : (
         <UsersListWrapper>
           <ButtonBack />
