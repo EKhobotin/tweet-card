@@ -55,6 +55,6 @@ created on it. Implemented pagination
 
 ## Contributors <a id="contributors">
 
-<a href="https://github.com/EKhobotin">
+<a href="https://github.com/EKhobotin" target="_blank">
 <img src="./public/contributor.png" alt="avatar" style="border-radius: 10%; width: 100px;">
 </a>
